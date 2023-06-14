@@ -1,0 +1,20 @@
+Compiler les fichiers source :
+javac -d bin src/*.java
+
+
+Ex�cuter la classe Executable :
+java -cp bin NomDeLaClasse
+
+
+G�n�rer la javadoc dans le dossier doc/
+javadoc -charset utf8 -noqualifier java.lang -d doc src/*.java
+
+
+
+1 - Dans le menu Executer > Ajouter une configuration ou Ouvrir les configurations
+- Après la ligne "request": "launch", ajouter la ligne : "vmArgs": "--module-path /usr/share/openjfx/lib/ --add-modules javafx.controls,javafx.fxml",
+et enregister le fichier launch.json
+
+2 - Dans le menu Affichage > Palette de commandes... > Java : Configure Classpath
+- Ajouter le chemin des librairies javafx utilisées dans "Referenced Libraries".
+En général : /usr/share/openfx/lib/<nom_de_fichier>.jar (sélectionner tous les fichiers jar)
