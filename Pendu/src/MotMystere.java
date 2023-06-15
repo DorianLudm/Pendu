@@ -245,6 +245,11 @@ public class MotMystere {
         return nbNouvelles;
     }
 
+    /**
+     * permet de transformer un nom de niveau à l'entier correspondant
+     * @param s Le niveau à convertir en entier
+     * @return L'entier correspondant au niveau
+     */
     public int getIntDifficulté(String s){
         int res = -1;
         switch(s){
@@ -270,6 +275,10 @@ public class MotMystere {
         return res;
     }
 
+    /**
+     * permet de transformer l'entier du niveau séléctionner à son nom correspondant
+     * @return Le nom de la difficulté séléctionnée
+     */
     public String getDifficultéToString(){
         String res = "";
         switch(this.niveau){
@@ -294,12 +303,19 @@ public class MotMystere {
         return res;
     }
 
+    /**
+     * Calcul l'avancement de la progress bar
+     */
     public double getProgressBar(){
         int nbLettreATrouve = (this.getMotATrouve().length() - this.getNbLettresRestantes());
         double progress = (double) nbLettreATrouve / (double) this.getMotCrypte().length();
         return progress;
     }
 
+    /**
+     * permet de modifier le nombre d'erreur max
+     * @param i De combien le nombre d'erreur max actuel doit varier
+     */
     public void setnbEerreursMax(int i){
         this.nbEerreursMax = i;
     }

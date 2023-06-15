@@ -194,6 +194,9 @@ public class Pendu extends Application {
         return res;
     }
 
+    /**
+     * @return la fenêtre du jeu du pendu
+     */
     private BorderPane fenetreJeu(){
         BorderPane res = new BorderPane();
         //VBox centrale
@@ -229,6 +232,9 @@ public class Pendu extends Application {
         return res;
     }
 
+    /**
+     * @return la fenêtre des paramètres du jeu du pendu
+     */
     private VBox fenetreParam(){
         VBox res = new VBox();
         ToggleGroup couleur = new ToggleGroup();
@@ -267,6 +273,9 @@ public class Pendu extends Application {
         }
     }
 
+    /**
+     * Permet de passer la fenetre au mode acceuil
+     */
     public void modeAccueil(){
         this.jeuxInProgress = false;
         this.panelCentral = this.fenetreAccueil();
@@ -275,6 +284,9 @@ public class Pendu extends Application {
         this.majAffichage();
     }
     
+    /**
+     * Permet de passer la fenetre au mode jeu
+     */
     public void modeJeu(){
         this.panelCentral = this.fenetreJeu();
         this.boutonMaison.setDisable(false);
@@ -282,6 +294,9 @@ public class Pendu extends Application {
         this.majAffichage();
     }
     
+    /**
+     * Permet de passer la fenetre au mode paramètres
+     */
     public void modeParametres(){
         this.panelCentral = this.fenetreParam();
         this.boutonMaison.setDisable(false);
@@ -313,36 +328,58 @@ public class Pendu extends Application {
         this.fenetre.setTop(this.titre());
     }
 
+    /**
+     * @return Un popup pour confirmer le redémarrage de la partie
+     */
     public Alert popUpPartieEnCours(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"La partie est en cours!\nEtes-vous sûr de l'interrompre ?", ButtonType.YES, ButtonType.NO);
         alert.setTitle("Attention");
         return alert;
     }
-        
+    
+    /**
+     * @return Un popup qui présente le pendu
+     */
     public Alert popUpReglesDuJeu(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION,"Un mot caché doit être retrouver, pour cela appuyer sur les lettres pour faire des essais!\nSi vous choisissez une lettre qui n'est pas dans le mot, un bout du personnage apparait!\nSi le personnage entier est pendu, c'est PERDU!\nSi tout le mot est trouvé, c'est GAGNER!");
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         return alert;
     }
     
+    /**
+     * @return Un pop pour demander si on souhaite relancer une partie après avoir gagné la précédente
+     */
     public Alert popUpMessageGagne(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Vous avez gagner!\nVoulez vous relancer une partie ?", ButtonType.YES, ButtonType.NO);        
         return alert;
     }
     
+    /**
+     * @return Un pop pour demander si on souhaite relancer une partie après avoir perdu la précédente
+     */
     public Alert popUpMessagePerdu(){   
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Vous avez perdu!\nVoulez vous relancer une partie ?", ButtonType.YES, ButtonType.NO);
         return alert;
     }
 
+    /**
+     * @return Un booléen auquel lui est associé si une partie est en cours
+     */
     public boolean getEnCours(){
         return this.jeuxInProgress;
     }
 
+    /**
+     * Change l'attribut "jeuxInProgress" à false
+     */
     public void gameOff(){
         this.jeuxInProgress = false;
     }
 
+    /**
+     * Change l'attribut "color" à la couleur donnée en paramètre
+     * @param color La couleur dont la banière du jeu sera
+     */
     public void setColor(Color color){
         this.color = color;
     }
